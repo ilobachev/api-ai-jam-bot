@@ -1,0 +1,6 @@
+{
+  "name": "API.AI webhook for Jam bot",
+  "description": "API.AI webhook for Jam bot",
+  "repository": "https://github.com/ilobachev/api-ai-jam-bot",
+  "keywords": ["api.ai", "natural language"]
+}
