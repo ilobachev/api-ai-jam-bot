@@ -33,6 +33,7 @@ def processRequest(req):
     if req.get("result").get("action") != "jam.location.get":
         return {}
 
+    print('Parameters: ' + req.get("result").get("parameters"))
     location = req.get("result").get("parameters").get("Location").get("Location")
 
     data.setdefault('locations', []).append(location)
@@ -42,14 +43,14 @@ def processRequest(req):
 
 
 def makeWebhookResult(data):
-    return data
-
+#    return data
+    locations = ''.join(data['locations'])
     print("Response:")
-    print(speech)
+    print(locations)
 
     return {
-        "speech": ''.join(data['locations']),
-        "displayText": ''.join(data['locations']),
+        "speech": locations,
+        "displayText": locations,
         # "data": data,
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
