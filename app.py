@@ -33,7 +33,7 @@ def processRequest(req):
     if req.get("result").get("action") != "jam.location.get":
         return {}
 
-    location = req.get("result").get("parameters").get("Location")
+    location = req.get("result").get("parameters").get("Location").get("Location")
 
     data.setdefault('locations', []).append(location)
 
