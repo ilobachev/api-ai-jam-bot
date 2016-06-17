@@ -20,20 +20,21 @@ def webhook():
     print("Request:")
     print(json.dumps(req, indent=4))
 
+    print('Action:' + req.get("result").get("action"))
     res = processRequest(req)
-
     res = json.dumps(res, indent=4)
     # print(res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
+    print(r)
     return r
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "jam.location.get":
+    if req.get("result").get("action") != 'jam.location.get':
         return {}
 
-    print('Parameters: ' + req.get("result").get("parameters"))
+    print(req.get("result").get("parameters"))
     location = req.get("result").get("parameters").get("Location").get("Location")
 
     data.setdefault('locations', []).append(location)
@@ -62,4 +63,4 @@ if __name__ == '__main__':
 
     print "Starting app on port %d" % port
 
-    app.run(debug=False, port=port, host='0.0.0.0')
+    app.run(debug=True, port=port, host='0.0.0.0')
