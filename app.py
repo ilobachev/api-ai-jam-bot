@@ -53,7 +53,7 @@ def makeWebhookResult(data):
         "speech": locations,
         "displayText": locations,
         # "data": data,
-        # "contextOut": [],
+        "contextOut": [{"name":"sendinvoicebyemail","lifespan":0},{"name":"prompt","lifespan":5}],
         "source": "apiai-weather-webhook-sample"
     }
 
