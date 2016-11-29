@@ -35,10 +35,10 @@ def processRequest(req):
         return {}
 
     print(req.get("result").get("parameters"))
-    location = req.get("result").get("parameters").get("Location")
-    location = []
+    #location = req.get("result").get("parameters").get("Location")
+    #location = []
 
-    data.setdefault('locations', []).append(location)
+    #data.setdefault('locations', []).append(location)
 
     res = makeWebhookResult(data)
     return res
@@ -46,13 +46,12 @@ def processRequest(req):
 
 def makeWebhookResult(data):
 #    return data
-    locations = ''.join(data['locations'])
+    #locations = ''.join(data['locations'])
     print("Response:")
-    print(locations)
 
     return {
-        "speech": locations,
-        "displayText": locations,
+        "speech": "response",
+        "displayText": "response",
         # "data": data,
         "contextOut": [{"name":"sendinvoicebyemail","lifespan":0},{"name":"prompt","lifespan":5}],
         "source": "apiai-weather-webhook-sample"
