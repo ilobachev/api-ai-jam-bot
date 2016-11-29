@@ -35,7 +35,7 @@ def processRequest(req):
         return {}
 
     print(req.get("result").get("parameters"))
-    #location = req.get("result").get("parameters").get("Location").get("Location")
+    location = req.get("result").get("parameters").get("Location")
     location = []
 
     data.setdefault('locations', []).append(location)
